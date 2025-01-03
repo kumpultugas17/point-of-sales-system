@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
    if ($update_total) {
       // echo "Transaction completed successfully! Total amount: " . $total;
-      $_SESSION['sukses'] = "Berhasil melakukan transaksi baru senilai <b>number_format($total, 2, ',', '.')</b>.";
+      $_SESSION['sukses'] = "Berhasil melakukan transaksi baru senilai <b>Rp " . number_format($total, 2, ',', '.') . "</b>.";
       header("location: ../../../main.php?module=riwayat-transaksi");
       return false;
    } else {

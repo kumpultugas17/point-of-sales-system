@@ -36,7 +36,7 @@ while ($row = $result->fetch_assoc()) {
                         <th>Qty</th>
                         <th>Harga</th>
                         <th>Subtotal</th>
-                        <th>Aksi</th>
+                        <th class="text-center">Aksi</th>
                      </tr>
                   </thead>
                   <tbody id="item-list">
@@ -53,7 +53,7 @@ while ($row = $result->fetch_assoc()) {
             </div>
             <div>
                <button type="button" class="btn btn-primary" onclick="addItem()">Tambah Item</button>
-               <button type="submit" class="btn btn-outline-success">Checkout</button>
+               <button type="submit" class="btn btn-success">Checkout</button>
             </div>
          </form>
       </div>
@@ -62,8 +62,18 @@ while ($row = $result->fetch_assoc()) {
 <!-- / Content -->
 
 <script>
+   // Array produk
    const produk = <?php echo json_encode($produk); ?>;
 
+   // Format rupiah Indonesia
+   const rupiah = (number) => {
+      return new Intl.NumberFormat("id-ID", {
+         style: "currency",
+         currency: "IDR"
+      }).format(number);
+   }
+
+   // Fungsi untuk menambahkan item
    function addItem() {
       let itemList = document.getElementById('item-list');
       let newRow = itemList.insertRow();
@@ -91,19 +101,21 @@ while ($row = $result->fetch_assoc()) {
          <td class="sub_total">
             0
          </td>
-         <td>
-            <button type="button" class="btn btn-danger" onclick="removeItem(this)">Batal</button>
+         <td class="text-center">
+            <button type="button" class="btn btn-sm px-2 btn-outline-danger" onclick="removeItem(this)"><span class="bx bx-trash"></span></button>
          </td>
       `;
       updateTotal();
    }
 
+   // Fungsi untuk menghapus item
    function removeItem(button) {
       let row = button.parentNode.parentNode;
       row.parentNode.removeChild(row);
       updateTotal();
    }
 
+   // Fungsi untuk memperbarui harga
    function updateHarga(select) {
       let row = select.parentNode.parentNode;
       let harga = select.options[select.selectedIndex].getAttribute('data-price');
@@ -111,6 +123,7 @@ while ($row = $result->fetch_assoc()) {
       updateSubtotal(row.querySelector('input[name="quantity[]"]'));
    }
 
+   // Fungsi untuk memperbarui subtotal
    function updateSubtotal(input) {
       let row = input.parentNode.parentNode;
       let harga = parseFloat(row.querySelector('.harga').innerText);
@@ -120,6 +133,7 @@ while ($row = $result->fetch_assoc()) {
       updateTotal();
    }
 
+   // Fungsi untuk memperbarui total
    function updateTotal() {
       let total = 0;
       document.querySelectorAll('.sub_total').forEach(function(subtotalCell) {
