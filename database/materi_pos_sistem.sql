@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2025 at 07:31 AM
+-- Generation Time: Jan 03, 2025 at 09:41 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,12 +40,16 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id`, `nama_kategori`, `deskripsi`, `created_at`, `updated_at`) VALUES
-(1, 'Elektronik', 'Produk elektronik seperti TV, komputer, dan smartphone.', '2024-12-20 08:13:11', '2024-12-20 08:13:11'),
-(2, 'Fashion', 'Pakaian, aksesori, dan sepatu untuk pria, wanita, dan anak-anak.', '2024-12-20 08:13:11', '2024-12-20 08:13:11'),
-(3, 'Makanan & Minuman', 'Produk makanan dan minuman siap saji atau bahan makanan.', '2024-12-20 08:13:11', '2024-12-20 08:13:11'),
-(4, 'Kesehatan', 'Produk kesehatan seperti obat-obatan dan alat kesehatan.', '2024-12-20 08:13:11', '2024-12-20 08:13:11'),
-(5, 'Olahraga', 'Peralatan olahraga dan pakaian olahraga.', '2024-12-20 08:13:11', '2024-12-20 08:13:11'),
-(6, 'Peralatan Rumah Tangga', 'Peralatan rumah tangga seperti panci, blender, dan lainnya.', '2024-12-20 08:13:11', '2024-12-20 08:13:11');
+(1, 'Elektronik', 'Produk elektronik seperti televisi, komputer, dan smartphone', '2025-01-03 08:35:54', '2025-01-03 08:35:54'),
+(2, 'Pakaian', 'Berbagai jenis pakaian untuk pria, wanita, dan anak-anak', '2025-01-03 08:35:54', '2025-01-03 08:35:54'),
+(3, 'Makanan dan Minuman', 'Produk makanan ringan, minuman kemasan, dan bahan makanan', '2025-01-03 08:35:54', '2025-01-03 08:35:54'),
+(4, 'Kesehatan dan Kecantikan', 'Produk seperti kosmetik, perawatan kulit, dan suplemen kesehatan', '2025-01-03 08:35:54', '2025-01-03 08:35:54'),
+(5, 'Peralatan Rumah Tangga', 'Peralatan seperti blender, panci, dan barang kebutuhan rumah tangga lainnya', '2025-01-03 08:35:54', '2025-01-03 08:35:54'),
+(6, 'Otomotif', 'Produk seperti aksesori mobil, motor, dan suku cadang kendaraan', '2025-01-03 08:35:54', '2025-01-03 08:35:54'),
+(7, 'Mainan dan Hobi', 'Mainan untuk anak-anak serta barang untuk hobi seperti model kit atau alat musik', '2025-01-03 08:35:54', '2025-01-03 08:35:54'),
+(8, 'Peralatan Olahraga', 'Produk seperti bola, raket, dan pakaian olahraga', '2025-01-03 08:35:54', '2025-01-03 08:35:54'),
+(9, 'Buku dan Alat Tulis', 'Buku bacaan, buku pelajaran, dan perlengkapan alat tulis', '2025-01-03 08:35:54', '2025-01-03 08:35:54'),
+(10, 'Produk Digital', 'Produk digital seperti e-book, voucher game, dan perangkat lunak', '2025-01-03 08:35:54', '2025-01-03 08:35:54');
 
 -- --------------------------------------------------------
 
@@ -71,7 +75,10 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id`, `nama_pengguna`, `alamat`, `telepon`, `username`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'Azkadina Razan Fatimah', 'Jl. RTA Milono Kota Palangkaraya', '085249099652', 'admin', 'azkadina@mail.com', 'admin', 'kasir', '2025-01-02 14:22:14', '2025-01-02 14:22:27');
+(1, 'Admin Utama', 'Jl. Merdeka No. 1', '081234567890', 'admin', 'admin@example.com', 'admin', 'admin', '2025-01-03 08:37:51', '2025-01-03 08:37:51'),
+(2, 'Kasir Satu', 'Jl. Pahlawan No. 5', '082345678901', 'kasir1', 'kasir1@example.com', 'admin', 'kasir', '2025-01-03 08:37:51', '2025-01-03 08:37:51'),
+(3, 'Kasir Dua', 'Jl. Sudirman No. 10', '083456789012', 'kasir2', 'kasir2@example.com', 'admin', 'kasir', '2025-01-03 08:37:51', '2025-01-03 08:37:51'),
+(4, 'Admin Cadangan', 'Jl. Diponegoro No. 15', '084567890123', 'admin2', 'admin2@example.com', 'admin', 'admin', '2025-01-03 08:37:51', '2025-01-03 08:37:51');
 
 -- --------------------------------------------------------
 
@@ -96,29 +103,66 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `kode_produk`, `nama_produk`, `harga`, `stok`, `gambar`, `kategori_id`, `created_at`, `updated_at`) VALUES
-(1, 'PRD001', 'Earbuds Nirkabel', 850000, 40, NULL, 1, '2024-12-20 08:24:21', '2024-12-21 06:15:50'),
-(2, 'PRD002', 'Smartwatch Generasi Baru', 3200000, 25, NULL, 1, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(3, 'PRD003', 'Proyektor Mini HD', 2800000, 10, NULL, 1, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(4, 'PRD004', 'Sepatu Boots Kulit', 450000, 20, NULL, 2, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(5, 'PRD005', 'Topi Baseball', 120000, 50, NULL, 2, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(6, 'PRD006', 'Jaket Denim Unisex', 320000, 30, NULL, 2, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(7, 'PRD007', 'Pizza Pepperoni Medium', 90000, 7, NULL, 3, '2024-12-20 08:24:21', '2025-01-03 02:26:42'),
-(8, 'PRD008', 'Donat Isi Cokelat', 15000, 100, NULL, 3, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(9, 'PRD009', 'Smoothie Strawberry', 25000, 50, NULL, 3, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(10, 'PRD009', 'Obat Flu Tablet', 20000, 200, NULL, 4, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(11, 'PRD010', 'Paket Vitamin Multivitamin', 120000, 80, NULL, 4, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(12, 'PRD011', 'Hand Sanitizer 500ml', 30000, 150, NULL, 4, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(13, 'PRD012', 'Sepeda Lipat Aluminium', 3500000, 62, NULL, 5, '2024-12-20 08:24:21', '2025-01-03 04:01:59'),
-(14, 'PRD013', 'Sarung Tinju', 150000, 38, NULL, 5, '2024-12-20 08:24:21', '2025-01-03 04:01:59'),
-(16, 'PRD015', 'Vacuum Cleaner Robot', 2000000, 12, NULL, 6, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(17, 'PRD016', 'Microwave Oven Digital', 1500000, 15, NULL, 6, '2024-12-20 08:24:21', '2025-01-03 04:00:22'),
-(18, 'PRD017', 'Kompor Listrik 2 Tungku', 1200000, 20, NULL, 6, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(19, 'PRD018', 'Monitor Gaming Curved 27 Inch', 4000000, 15, NULL, 1, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(20, 'PRD019', 'Keyboard Mekanikal RGB', 750000, 22, NULL, 1, '2024-12-20 08:24:21', '2025-01-03 04:01:59'),
-(21, 'PRD020', 'Drone Kamera HD', 12000000, 8, NULL, 1, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(22, 'PRD021', 'Tas Kulit Premium', 550000, 20, NULL, 2, '2024-12-20 08:24:21', '2024-12-21 06:16:29'),
-(23, 'PRD022', 'Jas Formal Pria', 950000, 15, '677661dc4a788.png', 2, '2024-12-20 08:24:21', '2025-01-02 09:52:28'),
-(41, 'PRD023', 'Jam Tangan Wanita Elegan', 320000, 30, '67758579cd2fa.jpeg', 2, '2025-01-01 18:06:45', '2025-01-01 18:12:09');
+(1, 'PRD001', 'Smartphone XYZ', 2500000, 50, 'smartphone_xyz.jpg', 1, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(2, 'PRD002', 'Laptop ABC', 5000000, 30, 'laptop_abc.jpg', 1, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(3, 'PRD003', 'Kaos Polos', 50000, 200, 'kaos_polos.jpg', 2, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(4, 'PRD004', 'Jaket Hoodie', 150000, 100, 'jaket_hoodie.jpg', 2, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(5, 'PRD005', 'Snack Ringan', 10000, 500, 'snack_ringan.jpg', 3, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(6, 'PRD006', 'Minuman Soda', 8000, 300, 'minuman_soda.jpg', 3, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(7, 'PRD007', 'Lipstik Merah', 70000, 100, 'lipstik_merah.jpg', 4, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(8, 'PRD008', 'Vitamin C', 90000, 150, 'vitamin_c.jpg', 4, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(9, 'PRD009', 'Blender XYZ', 300000, 50, 'blender_xyz.jpg', 5, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(10, 'PRD010', 'Panci Besar', 250000, 70, 'panci_besar.jpg', 5, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(11, 'PRD011', 'Aksesori Mobil', 100000, 40, 'aksesori_mobil.jpg', 6, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(12, 'PRD012', 'Oli Motor', 50000, 120, 'oli_motor.jpg', 6, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(13, 'PRD013', 'Mainan Robot', 120000, 60, 'mainan_robot.jpg', 7, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(14, 'PRD014', 'Gitar Akustik', 600000, 20, 'gitar_akustik.jpg', 7, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(15, 'PRD015', 'Bola Sepak', 150000, 80, 'bola_sepak.jpg', 8, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(16, 'PRD016', 'Raket Tenis', 250000, 40, 'raket_tenis.jpg', 8, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(17, 'PRD017', 'Novel Fiksi', 50000, 100, 'novel_fiksi.jpg', 9, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(18, 'PRD018', 'Pensil Mekanik', 15000, 200, 'pensil_mekanik.jpg', 9, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(19, 'PRD019', 'E-Book Programming', 100000, 9999, 'ebook_programming.jpg', 10, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(20, 'PRD020', 'Voucher Game 100k', 100000, 500, 'voucher_game.jpg', 10, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(21, 'PRD021', 'TV LED 40 Inch', 3000000, 25, 'tv_led_40.jpg', 1, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(22, 'PRD022', 'Headphone Bluetooth', 500000, 50, 'headphone_bt.jpg', 1, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(23, 'PRD023', 'Celana Jeans', 120000, 150, 'celana_jeans.jpg', 2, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(24, 'PRD024', 'Sepatu Sneakers', 300000, 80, 'sepatu_sneakers.jpg', 2, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(25, 'PRD025', 'Biskuit Cokelat', 20000, 400, 'biskuit_cokelat.jpg', 3, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(26, 'PRD026', 'Jus Buah Kemasan', 15000, 300, 'jus_buah.jpg', 3, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(27, 'PRD027', 'Pelembap Wajah', 100000, 100, 'pelembap_wajah.jpg', 4, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(28, 'PRD028', 'Minyak Rambut', 75000, 120, 'minyak_rambut.jpg', 4, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(29, 'PRD029', 'Setrika Listrik', 250000, 60, 'setrika_listrik.jpg', 5, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(30, 'PRD030', 'Kompor Gas', 450000, 40, 'kompor_gas.jpg', 5, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(31, 'PRD031', 'Ban Motor', 300000, 50, 'ban_motor.jpg', 6, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(32, 'PRD032', 'Lampu Mobil', 150000, 70, 'lampu_mobil.jpg', 6, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(33, 'PRD033', 'Puzzle Anak', 50000, 120, 'puzzle_anak.jpg', 7, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(34, 'PRD034', 'Drum Kit Mini', 1500000, 15, 'drum_kit_mini.jpg', 7, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(35, 'PRD035', 'Kaos Olahraga', 75000, 150, 'kaos_olahraga.jpg', 8, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(36, 'PRD036', 'Sepatu Lari', 400000, 60, 'sepatu_lari.jpg', 8, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(37, 'PRD037', 'Ensiklopedia Anak', 200000, 80, 'ensiklopedia_anak.jpg', 9, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(38, 'PRD038', 'Buku Gambar', 30000, 200, 'buku_gambar.jpg', 9, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(39, 'PRD039', 'Software Antivirus', 350000, 500, 'software_antivirus.jpg', 10, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(40, 'PRD040', 'Voucher Streaming 1 Bulan', 50000, 300, 'voucher_streaming.jpg', 10, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(41, 'PRD041', 'Tablet Android', 2000000, 40, 'tablet_android.jpg', 1, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(42, 'PRD042', 'Power Bank 10000mAh', 300000, 100, 'power_bank.jpg', 1, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(43, 'PRD043', 'Kemeja Formal', 150000, 120, 'kemeja_formal.jpg', 2, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(44, 'PRD044', 'Topi Baseball', 50000, 150, 'topi_baseball.jpg', 2, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(45, 'PRD045', 'Keripik Kentang', 15000, 300, 'keripik_kentang.jpg', 3, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(46, 'PRD046', 'Teh Botol', 8000, 500, 'teh_botol.jpg', 3, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(47, 'PRD047', 'Maskara Tahan Air', 90000, 90, 'maskara_tahan_air.jpg', 4, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(48, 'PRD048', 'Sabun Wajah', 60000, 130, 'sabun_wajah.jpg', 4, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(49, 'PRD049', 'Rice Cooker', 350000, 70, 'rice_cooker.jpg', 5, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(50, 'PRD050', 'Kipas Angin', 250000, 80, 'kipas_angin.jpg', 5, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(51, 'PRD051', 'Pelindung Jok Mobil', 120000, 60, 'pelindung_jok.jpg', 6, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(52, 'PRD052', 'Helm Motor', 400000, 50, 'helm_motor.jpg', 6, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(53, 'PRD053', 'Kartu Remi', 20000, 200, 'kartu_remi.jpg', 7, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(54, 'PRD054', 'Keyboard Gaming', 500000, 25, 'keyboard_gaming.jpg', 7, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(55, 'PRD055', 'Matras Yoga', 150000, 40, 'matras_yoga.jpg', 8, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(56, 'PRD056', 'Jersey Sepak Bola', 250000, 90, 'jersey_sepak_bola.jpg', 8, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(57, 'PRD057', 'Kamus Bahasa Inggris', 100000, 50, 'kamus_bahasa_inggris.jpg', 9, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(58, 'PRD058', 'Spidol Warna', 25000, 180, 'spidol_warna.jpg', 9, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(59, 'PRD059', 'Template Web', 200000, 9999, 'template_web.jpg', 10, '2025-01-03 08:40:49', '2025-01-03 08:40:49'),
+(60, 'PRD060', 'Lisensi Musik', 150000, 300, 'lisensi_musik.jpg', 10, '2025-01-03 08:40:49', '2025-01-03 08:40:49');
 
 -- --------------------------------------------------------
 
@@ -132,26 +176,6 @@ CREATE TABLE `stok_detail` (
   `stok_masuk` int(11) NOT NULL,
   `tanggal_masuk` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `stok_detail`
---
-
-INSERT INTO `stok_detail` (`id`, `produk_id`, `stok_masuk`, `tanggal_masuk`) VALUES
-(1, 23, 10, '2025-01-02'),
-(2, 1, 20, '2025-01-02'),
-(3, 13, 1, '2025-01-02'),
-(4, 13, 5, '2025-01-02'),
-(5, 13, 10, '2025-01-02'),
-(6, 13, 5, '2025-01-02'),
-(7, 13, 5, '2025-01-02'),
-(8, 13, 2, '2025-01-02'),
-(9, 13, 2, '2025-01-02'),
-(10, 13, 13, '2025-01-02'),
-(11, 13, 7, '2025-01-02'),
-(12, 13, 5, '2025-01-02'),
-(13, 13, 5, '2025-01-02'),
-(14, 7, 2, '2025-01-03');
 
 -- --------------------------------------------------------
 
@@ -168,14 +192,6 @@ CREATE TABLE `transaksi` (
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`id`, `tanggal_transaksi`, `total`, `pengguna_id`, `created_at`, `updated_at`) VALUES
-(1, '2025-01-03', 150000.00, 1, '2025-01-03 04:01:40', '2025-01-03 04:01:41'),
-(2, '2025-01-03', 9400000.00, 1, '2025-01-03 04:01:59', '2025-01-03 04:01:59');
-
 -- --------------------------------------------------------
 
 --
@@ -189,20 +205,9 @@ CREATE TABLE `transaksi_detail` (
   `quantity` int(11) NOT NULL,
   `harga` decimal(10,2) NOT NULL,
   `sub_total` decimal(10,2) NOT NULL,
-  `diskon` decimal(10,2) DEFAULT 0.00,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `transaksi_detail`
---
-
-INSERT INTO `transaksi_detail` (`id`, `transaksi_id`, `produk_id`, `quantity`, `harga`, `sub_total`, `diskon`, `created_at`, `updated_at`) VALUES
-(1, 1, 14, 1, 150000.00, 150000.00, 0.00, '2025-01-03 04:01:41', '2025-01-03 04:01:41'),
-(2, 2, 13, 2, 3500000.00, 7000000.00, 0.00, '2025-01-03 04:01:59', '2025-01-03 04:01:59'),
-(3, 2, 14, 1, 150000.00, 150000.00, 0.00, '2025-01-03 04:01:59', '2025-01-03 04:01:59'),
-(4, 2, 20, 3, 750000.00, 2250000.00, 0.00, '2025-01-03 04:01:59', '2025-01-03 04:01:59');
 
 --
 -- Indexes for dumped tables
@@ -257,37 +262,37 @@ ALTER TABLE `transaksi_detail`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `stok_detail`
 --
 ALTER TABLE `stok_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
