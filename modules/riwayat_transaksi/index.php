@@ -10,9 +10,9 @@ $transaksi = $conn->query("SELECT *, transaksi.id as id_transaksi FROM transaksi
                <a href="?module=dashboard">Home</a>
             </li>
             <li class="breadcrumb-item">
-               <a href="javascript:void(0);">Produk</a>
+               <a href="javascript:void(0);">Transaksi</a>
             </li>
-            <li class="breadcrumb-item active">List Produk</li>
+            <li class="breadcrumb-item active">Riwayat Transaksi</li>
          </ol>
       </div>
    </nav>
