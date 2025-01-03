@@ -33,15 +33,14 @@ $transaksi = $conn->query("SELECT * FROM transaksi_detail INNER JOIN transaksi O
                      <th class="text-center">Nama Produk</th>
                      <th class="text-center">Harga</th>
                      <th class="text-center">Qty</th>
-                     <th class="text-center">Diskon</th>
                      <th class="text-center">Subtotal</th>
                   </tr>
                </thead>
                <tbody>
                   <?php $no = 1; ?>
                   <?php foreach ($transaksi as $trx) : ?>
-                     <?php $grand_total = 0; ?>
-                     <?php $grand_total += $trx['sub_total']; ?>
+                     <?php $total[] = $trx['sub_total']; ?>
+                     <?php $grand_total = array_sum($total); ?>
                      <tr>
                         <th scope="row" class="text-center"><?= $no++ ?></th>
                         <td class="text-center"><?= $trx['tanggal_transaksi'] ?></td>
@@ -49,12 +48,11 @@ $transaksi = $conn->query("SELECT * FROM transaksi_detail INNER JOIN transaksi O
                         <td class="text-center"><?= $trx['nama_produk'] ?></td>
                         <td class="text-center">Rp <?= number_format($trx['harga'], 2, ',', '.') ?></td>
                         <td class="text-center"><?= $trx['quantity'] ?></td>
-                        <td class="text-center">Rp <?= number_format($trx['diskon'], 2, ',', '.') ?></td>
                         <td class="text-center">Rp <?= number_format($trx['sub_total'], 2, ',', '.') ?></td>
                      </tr>
                   <?php endforeach; ?>
                   <tr>
-                     <th scope="row" class="text-center" colspan="7">Grand Total</th>
+                     <th scope="row" class="text-center" colspan="6">Grand Total</th>
                      <td class="text-center">Rp <?= number_format($grand_total, 2, ',', '.') ?></td>
                   </tr>
                </tbody>
