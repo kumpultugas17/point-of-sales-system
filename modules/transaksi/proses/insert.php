@@ -6,8 +6,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    $produk_ids = $_POST['produk_id'];
    $quantities = $_POST['quantity'];
    $total = 0;
+   $pengguna_id = $_SESSION['id'];
 
-   $conn->query("INSERT INTO transaksi (tanggal_transaksi, total, pengguna_id) VALUES ('$tanggal', '$total', 1)");
+   $conn->query("INSERT INTO transaksi (tanggal_transaksi, total, pengguna_id) VALUES ('$tanggal', '$total', '$pengguna_id')");
    $transaksi_id = $conn->insert_id;
 
    for ($i = 0; $i < count($produk_ids); $i++) {
