@@ -71,7 +71,6 @@ $pageActive = isset($_GET['module']) ? $_GET['module'] : 'dashboard';
 
       <!-- Transaksi -->
       <li class="menu-header small text-uppercase"><span class="menu-header-text">Transaksi</span></li>
-      <!-- Cards -->
       <li class="menu-item <?= $pageActive == 'transaksi' ? 'active' : '' ?>">
          <a href="?module=transaksi" class="menu-link">
             <i class="menu-icon tf-icons bx bx-cart-add"></i>
@@ -87,43 +86,31 @@ $pageActive = isset($_GET['module']) ? $_GET['module'] : 'dashboard';
 
       <!-- Manage Produk -->
       <li class="menu-header small text-uppercase">
-         <span class="menu-header-text">Produk</span>
+         <span class="menu-header-text">Kelola Produk</span>
       </li>
       <li class="menu-item <?= in_array($pageActive, ['kelola-produk', 'edit-produk']) ? 'active' : '' ?>">
          <a href="?module=kelola-produk" class="menu-link">
             <i class="menu-icon tf-icons bx bx-package"></i>
-            <div data-i18n="Package">Kelola Produk</div>
+            <div data-i18n="Package">Produk</div>
          </a>
       </li>
       <li class="menu-item <?= in_array($pageActive, ['kelola-stok', 'detail-stok-produk']) ? 'active' : '' ?>">
          <a href="?module=kelola-stok" class="menu-link">
             <i class="menu-icon tf-icons bx bx-edit"></i>
-            <div data-i18n="Edit">Kelola Stok</div>
+            <div data-i18n="Edit">Stok</div>
          </a>
       </li>
-      <!-- Kategori Produk -->
-      <li class="menu-item <?= in_array($pageActive, ['tambah-kategori', 'list-kategori']) ? 'active open
-      ' : '' ?>">
-         <a href="javascript:void(0)" class="menu-link menu-toggle">
+      <li class="menu-item <?= $pageActive == 'kelola-kategori' ? 'active' : '' ?>">
+         <a href="?module=kelola-kategori" class="menu-link">
             <i class="menu-icon tf-icons bx bx-box"></i>
-            <div data-i18n="User interface">Kategori Produk</div>
+            <div data-i18n="Kategori">Kategori</div>
          </a>
-         <ul class="menu-sub">
-            <li class="menu-item <?= $pageActive == 'tambah-kategori' ? 'active' : '' ?>">
-               <a href="?module=tambah-kategori" class="menu-link">
-                  <div data-i18n="Accordion">Tambah Kategori</div>
-               </a>
-            </li>
-            <li class="menu-item <?= $pageActive == 'list-kategori' ? 'active' : '' ?>">
-               <a href="?module=list-kategori" class="menu-link">
-                  <div data-i18n="Alerts">List Kategori</div>
-               </a>
-            </li>
-         </ul>
       </li>
 
       <!-- Laporan -->
-      <li class="menu-header small text-uppercase"><span class="menu-header-text">Kelola Laporan</span></li>
+      <li class="menu-header small text-uppercase">
+         <span class="menu-header-text">Kelola Laporan</span>
+      </li>
       <li class="menu-item <?= $pageActive == 'laporan' ? 'active' : '' ?>">
          <a href="?module=laporan" class="menu-link">
             <i class="menu-icon tf-icons bx bx-file"></i>
@@ -138,12 +125,27 @@ $pageActive = isset($_GET['module']) ? $_GET['module'] : 'dashboard';
       </li>
 
       <!-- Kelola Pengguna -->
-      <li class="menu-header small text-uppercase"><span class="menu-header-text">Kelola Pengguna</span></li>
-      <li class="menu-item <?= $pageActive == 'list-pengguna' ? 'active' : '' ?>">
-         <a href="?module=list-pengguna" class="menu-link">
+      <li class="menu-header small text-uppercase">
+         <span class="menu-header-text">Kelola Pengguna</span>
+      </li>
+      <li class="menu-item <?= in_array($pageActive, ['list-pengguna', 'tambah-pengguna']) ? 'active open
+      ' : '' ?>">
+         <a href="javascript:void(0)" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons bx bx-user"></i>
-            <div data-i18n="User">List Pengguna</div>
+            <div data-i18n="User interface">Pengguna</div>
          </a>
+         <ul class="menu-sub">
+            <li class="menu-item <?= $pageActive == 'tambah-pengguna' ? 'active' : '' ?>">
+               <a href="?module=tambah-pengguna" class="menu-link">
+                  <div data-i18n="Accordion">Tambah Pengguna</div>
+               </a>
+            </li>
+            <li class="menu-item <?= $pageActive == 'list-pengguna' ? 'active' : '' ?>">
+               <a href="?module=list-pengguna" class="menu-link">
+                  <div data-i18n="Alerts">List Pengguna</div>
+               </a>
+            </li>
+         </ul>
       </li>
    </ul>
 </aside>

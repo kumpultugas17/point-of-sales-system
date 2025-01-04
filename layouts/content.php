@@ -20,6 +20,10 @@ switch ($module) {
    case 'detail-stok-produk':
       include 'modules/stok-produk/detail.php';
       break;
+      // Kategori
+   case 'kelola-kategori':
+      include 'modules/kategori/index.php';
+      break;
       // Transaksi
    case 'transaksi':
       include 'modules/transaksi/index.php';
@@ -31,6 +35,19 @@ switch ($module) {
       include 'modules/riwayat_transaksi/detail.php';
       break;
       // Laporan
+   case 'laporan':
+      include 'modules/laporan/index.php';
+      break;
+   case 'export-excel':
+      include 'modules/laporan/export-excel.php';
+      break;
+      // Pengguna
+   case 'tambah-pengguna':
+      include 'modules/pengguna/tambah.php';
+      break;
+   case 'list-pengguna':
+      include 'modules/pengguna/index.php';
+      break;
    default:
       include 'modules/dashboard/index.php';
       break;

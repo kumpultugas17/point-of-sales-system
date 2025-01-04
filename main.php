@@ -15,11 +15,11 @@ $titles = [
    'edit-produk' => 'Edit Produk',
    'kelola-stok' => 'Kelola Stok Produk',
    'detail-stok-produk' => 'Detail Stok',
-   'tambah-kategori' => 'Tambah Kategori',
-   'list-kategori' => 'Daftar Kategori',
+   'kelola-kategori' => 'Kelola Kategori',
    'laporan' => 'Laporan Keuangan',
    'export-excel' => 'Export Data ke Excel',
-   'list-pengguna' => 'Daftar Pengguna',
+   'list-pengguna' => 'List Pengguna',
+   'tambah-pengguna' => 'Tambah Pengguna',
 ];
 
 // Default title jika module tidak terdaftar
