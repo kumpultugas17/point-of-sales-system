@@ -5,7 +5,7 @@
             <div class="d-flex align-items-end row">
                <div class="col-sm-7">
                   <div class="card-body">
-                     <h5 class="card-title text-primary">Welcome Muhammad Fauzan, anda login sebagai <b>Kasir</b>! 🎉</h5>
+                     <h5 class="card-title text-primary">Welcome <?= $_SESSION['nama_pengguna'] ?>, anda login sebagai <b><?= $_SESSION['role'] ?></b>! 🎉</h5>
                      <p class="mb-4">
                         <b>Point Of Sales (POS) System</b><br>
                         Lakukan transaksi dengan mudah dan cepat.
