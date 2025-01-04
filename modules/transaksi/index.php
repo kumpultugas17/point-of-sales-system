@@ -21,43 +21,60 @@ while ($row = $result->fetch_assoc()) {
       </div>
    </nav>
 
-   <div class="card">
-      <div class="card-header d-flex justify-content-between align-items-center">
-         <h5 class="mb-0">Transaksi Baru</h5>
-      </div>
-      <div class="card-body">
-         <form method="POST" action="modules/transaksi/proses/insert.php">
-            <p class="float-end">Tanggal Transaksi : <?php echo date('d-m-Y'); ?></p>
-            <div class="mb-3">
-               <table class="table table-bordered table-hover">
-                  <thead>
-                     <tr>
-                        <th>Produk</th>
-                        <th>Qty</th>
-                        <th>Harga</th>
-                        <th>Subtotal</th>
-                        <th class="text-center">Aksi</th>
-                     </tr>
-                  </thead>
-                  <tbody id="item-list">
-                     <!-- Item rows will be added here dynamically -->
-                  </tbody>
-                  <tfoot>
-                     <tr>
-                        <td colspan="3" class="total-row">Grand Total</td>
-                        <td class="total-row fw-bold" id="total-amount">0</td>
-                        <td></td>
-                     </tr>
-                  </tfoot>
-               </table>
+   <form method="POST" action="modules/transaksi/proses/insert.php">
+      <div class="row">
+         <div class="col-md-9 col-sm-12">
+            <div class="card">
+               <div class="card-header d-flex justify-content-between align-items-center">
+                  <h5 class="mb-0">Transaksi Baru</h5>
+               </div>
+               <div class="card-body">
+                  <p class="float-end">Tanggal Transaksi : <?php echo date('d-m-Y'); ?></p>
+                  <div class="mb-3">
+                     <table class="table">
+                        <thead>
+                           <tr>
+                              <th>Produk</th>
+                              <th>Qty</th>
+                              <th>Harga</th>
+                              <th>Subtotal</th>
+                              <th></th>
+                           </tr>
+                        </thead>
+                        <tbody id="item-list">
+                           <!-- Item rows will be added here dynamically -->
+                        </tbody>
+                        <tfoot>
+                           <tr>
+                              <th colspan="3" class="total-row text-end">Grand Total</th>
+                              <th class="total-row" id="total-amount">0</th>
+                              <th></th>
+                           </tr>
+                        </tfoot>
+                     </table>
+                  </div>
+                  <div>
+                     <button type="button" class="btn btn-primary btn-sm" onclick="addItem()">
+                        <span class="d-flex align-items-center justify-content-center text-nowrap"><i class="bx bx-plus bx-xs me-2"></i>Add Item</span>
+                     </button>
+                  </div>
+               </div>
             </div>
-            <div>
-               <button type="button" class="btn btn-primary" onclick="addItem()">Tambah Item</button>
-               <button type="submit" class="btn btn-success">Checkout</button>
+         </div>
+         <div class="col-md-3 col-sm-12">
+            <div class="card">
+               <div class="card-body d-grid">
+                  <button type="submit" class="btn btn-success d-grid w-100 mb-4">
+                     <span class="d-flex align-items-center justify-content-center text-nowrap">
+                        <i class="bx bx-cart-alt bx-xs me-2"></i>Checkout
+                     </span>
+                  </button>
+                  <a href="javascript:void(0);" class="btn btn-secondary d-grid w-100" onclick="window.location.reload()">Batal</a>
+               </div>
             </div>
-         </form>
+         </div>
       </div>
-   </div>
+   </form>
 </div>
 <!-- / Content -->
 
@@ -86,6 +103,7 @@ while ($row = $result->fetch_assoc()) {
       }).join('');
 
       newRow.innerHTML = `
+      <tr>
          <td>
             <select class="form-select" name="produk_id[]" onchange="updateHarga(this)">
                <option value="" data-price="0" selected>Pilih Produk</option>
@@ -104,7 +122,7 @@ while ($row = $result->fetch_assoc()) {
          <td class="text-center">
             <button type="button" class="btn btn-sm px-2 btn-outline-danger" onclick="removeItem(this)"><span class="bx bx-trash"></span></button>
          </td>
-      `;
+      </tr>`;
       updateTotal();
    }
 
