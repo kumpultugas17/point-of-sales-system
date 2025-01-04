@@ -2,6 +2,11 @@
 session_start();
 require_once 'config/database.php';
 
+if (!isset($_SESSION['login'])) {
+   header('location: index.php');
+   exit();
+}
+
 // Tangkap parameter dari URL
 $module = isset($_GET['module']) ? $_GET['module'] : 'dashboard';
 
@@ -20,6 +25,7 @@ $titles = [
    'export-excel' => 'Export Data ke Excel',
    'list-pengguna' => 'List Pengguna',
    'tambah-pengguna' => 'Tambah Pengguna',
+   'edit-pengguna' => 'Edit Pengguna',
 ];
 
 // Default title jika module tidak terdaftar
