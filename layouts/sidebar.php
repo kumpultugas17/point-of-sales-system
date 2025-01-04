@@ -128,21 +128,21 @@ $pageActive = isset($_GET['module']) ? $_GET['module'] : 'dashboard';
       <li class="menu-header small text-uppercase">
          <span class="menu-header-text">Kelola Pengguna</span>
       </li>
-      <li class="menu-item <?= in_array($pageActive, ['list-pengguna', 'tambah-pengguna']) ? 'active open
+      <li class="menu-item <?= in_array($pageActive, ['list-pengguna', 'tambah-pengguna', 'edit-pengguna']) ? 'active open
       ' : '' ?>">
          <a href="javascript:void(0)" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons bx bx-user"></i>
             <div data-i18n="User interface">Pengguna</div>
          </a>
          <ul class="menu-sub">
-            <li class="menu-item <?= $pageActive == 'tambah-pengguna' ? 'active' : '' ?>">
-               <a href="?module=tambah-pengguna" class="menu-link">
-                  <div data-i18n="Accordion">Tambah Pengguna</div>
-               </a>
-            </li>
             <li class="menu-item <?= $pageActive == 'list-pengguna' ? 'active' : '' ?>">
                <a href="?module=list-pengguna" class="menu-link">
                   <div data-i18n="Alerts">List Pengguna</div>
+               </a>
+            </li>
+            <li class="menu-item <?= $pageActive == 'tambah-pengguna' || $pageActive == 'edit-pengguna' ? 'active' : '' ?>">
+               <a href="?module=tambah-pengguna" class="menu-link">
+                  <div data-i18n="Accordion">Tambah Pengguna</div>
                </a>
             </li>
          </ul>

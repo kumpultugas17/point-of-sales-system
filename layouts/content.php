@@ -43,10 +43,13 @@ switch ($module) {
       break;
       // Pengguna
    case 'tambah-pengguna':
-      include 'modules/pengguna/tambah.php';
+      include 'modules/pengguna/add.php';
       break;
    case 'list-pengguna':
       include 'modules/pengguna/index.php';
+      break;
+   case 'edit-pengguna':
+      include 'modules/pengguna/edit.php';
       break;
    default:
       include 'modules/dashboard/index.php';
