@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['login'])) {
-   header('Location: login.php');
+   header('location: login.php');
    exit();
 }
 
-header('Location: main.php?module=dashboard');
+header('location: main.php?module=dashboard');

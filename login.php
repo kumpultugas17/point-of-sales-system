@@ -95,15 +95,15 @@
                   <h4 class="mb-1">Welcome to POS System! 👋</h4>
                   <p class="mb-6">Please sign-in to your account and start the system</p>
 
-                  <form id="formAuthentication" class="mb-6" action="index.html">
+                  <form class="mb-6" action="login_proses.php" method="POST">
                      <div class="mb-6">
                         <label for="email" class="form-label">Email or Username</label>
-                        <input type="text" class="form-control" id="email" name="email-username" placeholder="Enter your email or username" autofocus />
+                        <input type="text" class="form-control" id="email" name="email_username" placeholder="Enter your email or username" autofocus required />
                      </div>
                      <div class="mb-6 form-password-toggle">
                         <label class="form-label" for="password">Password</label>
                         <div class="input-group input-group-merge">
-                           <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                           <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" required />
                            <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                         </div>
                      </div>
@@ -119,10 +119,9 @@
                         </div>
                      </div>
                      <div class="mb-6">
-                        <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
+                        <button type="submit" class="btn btn-primary d-grid w-100">Login</button>
                      </div>
                   </form>
-
                </div>
             </div>
             <!-- /Register -->
@@ -133,22 +132,14 @@
    <!-- / Content -->
 
    <!-- Core JS -->
-   <!-- build:js assets/vendor/js/core.js -->
-
    <script src="assets/vendor/libs/jquery/jquery.js"></script>
    <script src="assets/vendor/libs/popper/popper.js"></script>
    <script src="assets/vendor/js/bootstrap.js"></script>
    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
    <script src="assets/vendor/js/menu.js"></script>
 
-   <!-- endbuild -->
-
-   <!-- Vendors JS -->
-
    <!-- Main JS -->
    <script src="assets/js/main.js"></script>
-
-   <!-- Page JS -->
 
    <!-- Place this tag before closing body tag for github widget button. -->
    <script async defer src="https://buttons.github.io/buttons.js"></script>

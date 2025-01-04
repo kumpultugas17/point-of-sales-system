@@ -38,8 +38,8 @@
                            </div>
                         </div>
                         <div class="flex-grow-1">
-                           <span class="fw-semibold d-block">Muhammad Iqbal Adenan</span>
-                           <small class="text-muted">Admin</small>
+                           <span class="fw-semibold d-block"><?= $_SESSION['nama_pengguna'] ?></span>
+                           <small class="text-muted"><?= $_SESSION['role'] ?></small>
                         </div>
                      </div>
                   </a>
@@ -63,7 +63,7 @@
                   <div class="dropdown-divider"></div>
                </li>
                <li>
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="logout.php">
                      <i class="bx bx-power-off me-2"></i>
                      <span class="align-middle">Log Out</span>
                   </a>
