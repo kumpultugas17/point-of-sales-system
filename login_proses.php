@@ -16,12 +16,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          $_SESSION['nama_pengguna'] = $row['nama_pengguna'];
          $_SESSION['username'] = $row['username'];
          $_SESSION['role'] = $row['role'];
+         $_SESSION['sukses'] = "Selamat datang, " . $_SESSION['nama_pengguna'] . ".";
          header('Location: index.php');
-         exit;
+         return false;
       } else {
-         echo "<script>alert('Password salah!')</script>";
+         $_SESSION['gagal'] = "Password salah, silahkan coba lagi!";
+         header('Location: login.php');
+         return false;
       }
    } else {
-      echo "<script>alert('Email atau username salah!')</script>";
+      $_SESSION['gagal'] = "Email atau username salah, silahkan coba lagi!";
+      header('Location: login.php');
+      return false;
    }
 }

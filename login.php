@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 
 <html lang="id" class="light-style layout-wide customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="assets/" data-template="vertical-menu-template-free" data-style="light">
@@ -128,8 +132,47 @@
          </div>
       </div>
    </div>
-
    <!-- / Content -->
+
+   <!-- Notifications Toast -->
+   <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 2000;">
+      <div id="toastSuccess" class="bs-toast toast fade bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+         <div class="toast-header">
+            <i class="bx bx-bell me-2"></i>
+            <div class="me-auto fw-medium">Notifikasi</div>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+         </div>
+         <div class="toast-body">
+            <?= $_SESSION['sukses'] ?>
+         </div>
+      </div>
+   </div>
+
+   <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 2000;">
+      <div id="toastError" class="bs-toast toast fade bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+         <div class="toast-header">
+            <i class="bx bx-bell me-2"></i>
+            <div class="me-auto fw-medium">Notifikasi</div>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+         </div>
+         <div class="toast-body">
+            <?= $_SESSION['gagal'] ?>
+         </div>
+      </div>
+   </div>
+
+   <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 2000;">
+      <div id="toastWarning" class="bs-toast toast fade bg-warning" role="alert" aria-live="assertive" aria-atomic="true">
+         <div class="toast-header">
+            <i class="bx bx-bell me-2"></i>
+            <div class="me-auto fw-medium">Notifikasi</div>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+         </div>
+         <div class="toast-body">
+            <?= $_SESSION['peringatan'] ?>
+         </div>
+      </div>
+   </div>
 
    <!-- Core JS -->
    <script src="assets/vendor/libs/jquery/jquery.js"></script>
@@ -143,6 +186,52 @@
 
    <!-- Place this tag before closing body tag for github widget button. -->
    <script async defer src="https://buttons.github.io/buttons.js"></script>
+   <script>
+      // Fungsi untuk menampilkan toast
+      function showtoastSuccess() {
+         const toastElement = document.getElementById('toastSuccess');
+         const toast = new bootstrap.Toast(toastElement, {
+            delay: 3000
+         }); // 3 detik
+         toast.show(); // Tampilkan toast
+      }
+
+      function showtoastError() {
+         const toastElement = document.getElementById('toastError');
+         const toast = new bootstrap.Toast(toastElement, {
+            delay: 3000
+         }); // 3 detik
+         toast.show(); // Tampilkan toast
+      }
+
+      function showtoastWarning() {
+         const toastElement = document.getElementById('toastWarning');
+         const toast = new bootstrap.Toast(toastElement, {
+            delay: 3000
+         }); // 3 detik
+         toast.show(); // Tampilkan toast
+      }
+   </script>
+
+   <?php
+   if (isset($_SESSION['sukses'])) {
+      echo "<script>window.onload = function() { showtoastSuccess(); }</script>";
+      unset($_SESSION['sukses']); // Hapus sesi
+      exit();
+   }
+
+   if (isset($_SESSION['gagal'])) {
+      echo "<script>window.onload = function() { showtoastError(); }</script>";
+      unset($_SESSION['gagal']); // Hapus sesi
+      exit();
+   }
+
+   if (isset($_SESSION['peringatan'])) {
+      echo "<script>window.onload = function() { showtoastWarning(); }</script>";
+      unset($_SESSION['peringatan']); // Hapus sesi
+      exit();
+   }
+   ?>
 </body>
 
 </html>
